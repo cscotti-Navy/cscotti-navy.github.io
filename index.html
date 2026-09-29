@@ -1,10 +1,164 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Chris's Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Louis Scotti | Portfolio</title>
+  <meta name="description" content="Portfolio of Louis Scotti, Bates College: History and Digital and Computational Studies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #F6F7F9;
+      --ink: #1E2A36;
+      --garnet: #8A1F33;
+      --steel: #5A6875;
+      --rule: #D8DDE3;
+      --serif: "Newsreader", Georgia, "Times New Roman", serif;
+      --sans: "Public Sans", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 1rem; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+    a { color: var(--garnet); text-underline-offset: 0.2em; }
+    a:focus-visible { outline: 3px solid var(--garnet); outline-offset: 3px; }
+    .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.5rem; }
+    .text { max-width: 38rem; }
+
+    /* Top bar */
+    header.bar { padding: 1.25rem 0; border-bottom: 1px solid var(--rule); }
+    header.bar .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; }
+    header.bar strong { font-weight: 600; }
+    header.bar nav { font-family: var(--sans); font-size: 0.95rem; display: flex; gap: 1.25rem; }
+
+    /* Hero: the descent path is the one memorable thing */
+    .hero { display: grid; grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 0 3.5rem; align-items: center; }
+    @media (min-width: 60rem) { .hero { grid-template-columns: 5fr 6fr; } }
+    h1 {
+      font-weight: 400;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin: 0 0 1.25rem;
+    }
+    .hero p { margin: 0 0 1rem; }
+    .hero .who { font-family: var(--sans); font-size: 1rem; color: var(--steel); }
+
+    figure { margin: 0; }
+    figure img { display: block; width: 100%; height: auto; background: #fff; border: 1px solid var(--rule); }
+    figcaption { font-family: var(--sans); font-size: 0.9rem; line-height: 1.5; color: var(--steel); margin-top: 0.6rem; max-width: 38rem; }
+
+    /* Sections */
+    section { border-top: 1px solid var(--rule); padding: 3rem 0; }
+    h2 { font-weight: 600; font-size: 1.7rem; line-height: 1.25; margin: 0 0 1rem; }
+    h3 { font-weight: 600; font-size: 1.25rem; line-height: 1.3; margin: 2.5rem 0 0.5rem; }
+    section p { margin: 0 0 1rem; }
+    .pair { display: grid; grid-template-columns: 1fr; gap: 1.75rem; margin-top: 1.5rem; }
+    @media (min-width: 52rem) { .pair { grid-template-columns: 1fr 1fr; } }
+    .single { margin-top: 1.5rem; max-width: 34rem; }
+
+    .callout { border-left: 3px solid var(--garnet); padding: 0.25rem 0 0.25rem 1.25rem; margin: 1.75rem 0; max-width: 38rem; }
+    .callout p { margin: 0; }
+
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.9em; }
+    ul.files { padding-left: 1.2rem; margin: 0 0 1rem; }
+    ul.files li { margin-bottom: 0.35rem; }
+
+    footer { border-top: 1px solid var(--rule); padding: 2rem 0 3rem; font-family: var(--sans); font-size: 0.9rem; color: var(--steel); }
+  </style>
 </head>
 <body>
-  <h1>Chris's Portfolio</h1>
-  <p>Coming soon.</p>
+
+  <header class="bar">
+    <div class="wrap">
+      <strong>Louis Scotti</strong>
+      <nav aria-label="Page sections">
+        <a href="#optimization">Optimization work</a>
+        <a href="#code">Code</a>
+        <a href="https://github.com/cscotti-navy">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+
+      <div class="hero">
+        <div>
+          <h1>Computation with a historian's habit of checking the source.</h1>
+          <p class="text">I'm a rising senior at Bates College, double majoring in History and Digital and Computational Studies. I'm interested in finance and professional services, and I like work where careful reading and careful code both matter.</p>
+          <p class="who">Louis Scotti, Bates College, Class of 2027</p>
+        </div>
+        <figure>
+          <img src="gd_2_two_variables_contour.png" alt="Contour map of a bowl-shaped surface with a red path of gradient descent steps running from the lower left to a star marking the minimum.">
+          <figcaption>Gradient descent finding the bottom of a surface, seen from above. Written from scratch in Python.</figcaption>
+        </figure>
+      </div>
+
+      <section id="optimization">
+        <h2>Finding the highest or lowest point of a function</h2>
+        <p class="text">In DCS 340 we studied classical optimization: methods for finding where a function reaches its peak or its lowest point. I wrote two of them myself in Python and graphed how each one moves, so I could see the difference instead of only reading the formulas.</p>
+
+        <h3>Bisection</h3>
+        <p class="text">Bisection finds the top of a hill by trapping it. The slope is positive on one side of the peak and negative on the other, so the peak has to sit in between. Each step checks the middle of the window and throws away the half that can't contain it.</p>
+        <div class="pair">
+          <figure>
+            <img src="bisection_1_hill.png" alt="A parabola with red dots marking each bisection guess, numbered 1 to 4, clustering around the peak at x equals 2.">
+            <figcaption>Each guess lands closer to the peak at x = 2. Starting from the window [0, 3], it took 18 steps to reach x = 2.00000.</figcaption>
+          </figure>
+          <figure>
+            <img src="bisection_2_window.png" alt="Horizontal black bars, one per step, each half as long as the one above, collapsing onto a dashed line at x equals 2.">
+            <figcaption>The search window is cut in half at every step. This is why bisection is slow but cannot fail, as long as the slope changes sign inside the window.</figcaption>
+          </figure>
+        </div>
+
+        <h3>Gradient descent</h3>
+        <p class="text">Gradient descent doesn't trap anything. It stands somewhere, checks which way the ground slopes, and takes a small step downhill. The image at the top of this page shows a two-variable run from above. Here is the same idea with one, two and three variables.</p>
+        <div class="pair">
+          <figure>
+            <img src="gd_1_one_variable.png" alt="A parabola with red dots climbing from a green start point toward the peak, the dots getting closer together near the top.">
+            <figcaption>One variable. The steps shrink near the peak because the slope flattens, so the method slows itself down.</figcaption>
+          </figure>
+          <figure>
+            <img src="gd_3_two_variables_surface.png" alt="A three-dimensional bowl-shaped surface with a red path of dots running along its bottom.">
+            <figcaption>Two variables, drawn on the surface itself. With a step size of 0.1 it took 150 steps to reach the bottom at (4.67, 5.33).</figcaption>
+          </figure>
+        </div>
+        <figure class="single">
+          <img src="gd_4_three_variables.png" alt="Three curves, x, y and z, each starting at zero and leveling off at dashed lines at 1, negative 2 and 1.">
+          <figcaption>Three variables can't be drawn as a surface, so each variable is plotted against the step number. All three settle on the true minimum, (1, -2, 1), in 69 steps.</figcaption>
+        </figure>
+
+        <div class="callout">
+          <p>The lecture slide says 20 steps of gradient descent is enough on the two-variable surface. When I ran it, 20 steps only got to about (4.06, 4.73). It needs 150 to reach (4.67, 5.33). I found this by running the code instead of trusting the slide.</p>
+        </div>
+      </section>
+
+      <section id="code">
+        <h2>The code</h2>
+        <p class="text">Every file runs on its own, with no other files needed. Each one uses only NumPy and Matplotlib.</p>
+        <ul class="files text">
+          <li><code>bisection_graphs.py</code> makes the two bisection images.</li>
+          <li><code>gradient_descent_graphs.py</code> makes the gradient descent images.</li>
+        </ul>
+        <p class="text"><a href="https://github.com/cscotti-navy/myPortfolio-">See the full repository on GitHub</a></p>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">Built with plain HTML and hosted on GitHub Pages.</div>
+  </footer>
+
 </body>
 </html>
